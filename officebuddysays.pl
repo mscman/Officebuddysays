@@ -1,3 +1,15 @@
+###################
+#
+# officebuddysays.pl -- a TTYtter bot extension
+#
+# 	Copyright (C) 2011 by Andy Howard and Ben Cotton
+#
+# 	See README for more information.
+#
+# 	Licensed under GNU Public License v2.0. See LICENSE for full text.
+#
+###################
+
 die("Don't run anonymously") if ($anonymous);
 die("Requires TTYtter version 1.2 or greater\n") if ( $TTYtter_VERSION < 1.2 );
 
