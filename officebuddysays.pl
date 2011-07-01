@@ -27,7 +27,7 @@ if(open(S, $store->{'master'})) {
 $extension_mode = $EM_SCRIPT_OFF;
 
 $handle = sub {
-        my $ref = shift;
+    my $ref = shift;
     if ($ref->{'user'}->{'protected'} eq 'true') {
         return 0;
     }
