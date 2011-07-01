@@ -1,6 +1,9 @@
 die("Don't run anonymously") if ($anonymous);
+die("Requires TTYtter version 1.2 or greater\n") if ( $TTYtter_VERSION < 1.2 );
+
 #list of things to track
-$track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
+#$track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
+$track= '#MyTestTag';
 $notimeline = 1;
 $store->{'dontecho'} = $whoami; #get my username
 $store->{'master'} = "$ENV{'HOME'}/last_tweet";
@@ -25,15 +28,10 @@ $handle = sub {
 
 
     #retweet!
-    my $string = "RT \@$sn " . &descape($ref->{'text'});
-    #don't retweet the hashtag too...
-    $string =~ s/#stuffmyofficebuddysays//ig;
-    $string =~ s/#thingsmyofficematesays//ig;
-    $string =~ s/#thingsmybosssays//ig;
-    $string =~ s/#stuffmybosssays//ig;
+    my $string = &descape($ref->{'text'});
     #print for debugging
     print $stdout ("Publishing: ", $string, "\n");
-    &updatest($string);
+    &updatest($string,'','','',$last_id);
     &defaulthandle($ref);
     return 1;
 };
