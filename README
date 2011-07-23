@@ -6,3 +6,13 @@ officebuddysays.pl -- a TTYtter bot extension
 officebuddysays is a an extension for Cameron Kaiser's TTYtter program 
 (http://www.floodgap.com/software/ttytter). The bot follows defined tags or
 search terms and retweets them.
+
+To use this extension, load it with the -exts= flag to TTYtter. For example:
+	ttytter -exts=officebuddysays.pl
+
+To set it and forget it, copy the officebuddy.init script to start/stop the 
+bot. You may copy this script to /etc/init.d/ and use chkconfig to manage the 
+automatic starting/stopping like any other service.
+
+You can change what strings the bot searches by changing the value of $track or
+setting an OFFICEBUDDY_TRACK environment variable.
