@@ -14,8 +14,7 @@ die("Don't run anonymously") if ($anonymous);
 die("Requires TTYtter version 1.2 or greater\n") if ( $TTYtter_VERSION < 1.2 );
 
 #list of things to track
-#$track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
-$track= '#MyTestTag';
+$track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
 $notimeline = 1;
 $store->{'dontecho'} = $whoami; #get my username
 $store->{'master'} = "$ENV{'HOME'}/last_tweet";
