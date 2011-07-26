@@ -14,7 +14,8 @@ die("Don't run anonymously") if ($anonymous);
 die("Requires TTYtter version 1.2 or greater\n") if ( $TTYtter_VERSION < 1.2 );
 
 #list of things to track
-$track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
+#$track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
+$track = '#BabyFiasco';
 $notimeline = 1;
 $store->{'dontecho'} = $whoami; #get my username
 $store->{'master'} = "$ENV{'HOME'}/last_tweet";
@@ -42,7 +43,10 @@ $handle = sub {
     my $string = &descape($ref->{'text'});
     #print for debugging
     print $stdout ("Publishing: ", $string, "\n");
-    &updatest($string,'','','',$last_id);
+    # Tell TTYtter to RT the status
+    &updatest($string, 1, 0, undef,
+        $tweet->{'retweeted_status'}->{'id_str'}
+        || $tweet->{'id_str'})
     &defaulthandle($ref);
     return 1;
 };
