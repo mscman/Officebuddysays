@@ -15,7 +15,7 @@ die("Requires TTYtter version 1.2 or greater\n") if ( $TTYtter_VERSION < 1.2 );
 
 #list of things to track
 #$track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
-$track = '#BabyFiasco';
+$track = '#MoreLibations';
 $notimeline = 1;
 $store->{'dontecho'} = $whoami; #get my username
 $store->{'master'} = "$ENV{'HOME'}/last_tweet";
@@ -44,9 +44,11 @@ $handle = sub {
     #print for debugging
     print $stdout ("Publishing: ", $string, "\n");
     # Tell TTYtter to RT the status
+    $string =~ s/^RT \@[^\s]+:\s+// if ($ref->{'retweeted_status'}->{'id_str'});
+    print $stdout "-- status retweeted\n"
     &updatest($string, 1, 0, undef,
-        $tweet->{'retweeted_status'}->{'id_str'}
-        || $tweet->{'id_str'})
+        $ref->{'retweeted_status'}->{'id_str'}
+        || $ref->{'id_str'})
     &defaulthandle($ref);
     return 1;
 };
