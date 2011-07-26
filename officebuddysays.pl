@@ -47,9 +47,11 @@ $handle = sub {
     #print for debugging
     print $stdout ("Publishing: ", $string, "\n");
     # Tell TTYtter to RT the status
+    $string =~ s/^RT \@[^\s]+:\s+// if ($ref->{'retweeted_status'}->{'id_str'});
+    print $stdout "-- status retweeted\n"
     &updatest($string, 1, 0, undef,
-        $tweet->{'retweeted_status'}->{'id_str'}
-        || $tweet->{'id_str'})
+        $ref->{'retweeted_status'}->{'id_str'}
+        || $ref->{'id_str'})
     &defaulthandle($ref);
     return 1;
 };
