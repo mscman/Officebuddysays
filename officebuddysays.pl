@@ -46,7 +46,10 @@ $handle = sub {
     my $string = &descape($ref->{'text'});
     #print for debugging
     print $stdout ("Publishing: ", $string, "\n");
-    &updatest($string,'','','',$last_id);
+    # Tell TTYtter to RT the status
+    &updatest($string, 1, 0, undef,
+        $tweet->{'retweeted_status'}->{'id_str'}
+        || $tweet->{'id_str'})
     &defaulthandle($ref);
     return 1;
 };

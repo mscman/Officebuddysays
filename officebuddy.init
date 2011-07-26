@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# officebuddy.init
+#
+#	A shell script wrapper to start and stop the OfficeBuddySays Twitter
+# bot.
+#
+# chkconfig: 2345 90 10
+# description: Start OfficeBuddySays
+
+# What's the command to use? You might need to fill in the full path, the rc
+# and/or key file to use, and update the path to the extension
+TTYtterCommand="ttytter -daemon -rc=officebuddysays -exts=/home/officebuddy/officebuddysays.pl"
+
+case "$1" in
+        start)
+		# Run the daemon and grab the PID (which the bot tells us on STDOUT)
+		$TTYtterCommand 2>/var/run/officebuddysays.pid
+
+	stop)
+		kill `cat /var/run/officebuddysays.pid`
+		rm /var/run/officebuddysays.pid
+
+esac
+
+return $?

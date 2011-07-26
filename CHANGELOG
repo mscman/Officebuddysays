@@ -1,0 +1,11 @@
+OfficeBuddySays changelog
+
+* Version 1.2
+	- There's an init script to start/stop the daemon
+	- The OFFICEBUDDY_TRACK environment variable can be used to define the
+		strings to search instead of having to modify the code directly.
+	- Added CHANGELOG file and more usage information to README
+* Version 1.1 -- 22 July 2011, 1.1.1 -- 25 July 2011
+	- Since TTYtter 1.2+ supports newRTs, we do too.
+* Version 1.0
+	- There's an officebuddy bot!
