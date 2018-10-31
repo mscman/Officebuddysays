@@ -1,6 +1,6 @@
 ###################
 #
-# officebuddysays.pl -- a TTYtter bot extension
+# officebuddysays.pl -- a OysTTYer bot extension
 #
 # 	Copyright (C) 2011 by Andy Howard and Ben Cotton
 #
@@ -11,7 +11,7 @@
 ###################
 
 die("Don't run anonymously") if ($anonymous);
-die("Requires TTYtter version 1.2 or greater\n") if ( $TTYtter_VERSION < 1.2 );
+die("Requires OysTTYer version 1.2 or greater\n") if ( $OYSTTYER_VERSION < 1.2 );
 
 #list of things to track
 $track = '#stuffmyofficebuddysays #thingsmyofficematesays #thingsmybosssays #stuffmybosssays';
@@ -42,7 +42,7 @@ $handle = sub {
     my $string = &descape($ref->{'text'});
     #print for debugging
     print $stdout ("Publishing: ", $string, "\n");
-    # Tell TTYtter to RT the status
+    # Tell OysTTYer to RT the status
     $string =~ s/^RT \@[^\s]+:\s+// if ($ref->{'retweeted_status'}->{'id_str'});
     print $stdout "-- status retweeted\n"
     &updatest($string, 1, 0, undef,
