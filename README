@@ -1,8 +1,8 @@
-officebuddysays.pl -- a TTYtter bot extension
+officebuddysays.pl -- a OysTTYer bot extension
 
 	Copyright (C) 2011 by Andy Howard and Ben Cotton
 	Licensed under GNU Public License v2.0. See LICENSE file for full license.
 
-officebuddysays is a an extension for Cameron Kaiser's TTYtter program 
-(http://www.floodgap.com/software/ttytter). The bot follows defined tags or
+officebuddysays is a an extension for the OysTTYer program 
+(http://github.com/oysttyer/oysttyer). The bot follows defined tags or
 search terms and retweets them.
